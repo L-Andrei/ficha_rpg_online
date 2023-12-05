@@ -1,4 +1,4 @@
-Para rodar o código basta instalar estas biblitecas:
+Para rodar o código basta ter instalado o python e instalar estas biblitecas:
 
 pip install flask_session
 pip install flask
@@ -6,4 +6,6 @@ pip install datetime
 pip install flask_cors
 pip install flask_sqlalchemy
 
-Apos instaladas basta rodar o arquivo backend.py
+Apos instaladas basta rodar o arquivo backend.py ir até o navegador e colocar o link:
+
+http://locahost:5000/

@@ -234,4 +234,4 @@ def deletar_personagem():
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
-app.run(debug=True,host="0.0.0.0")
+app.run(debug=True)

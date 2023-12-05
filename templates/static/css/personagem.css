@@ -1,0 +1,93 @@
+*{ 
+  color: white;
+}
+
+button{
+background-color: #121212;
+color: white;
+border: 1px 1px;
+border-color: white;
+}
+
+input{
+  background-color: #121111;
+}
+
+body{
+  background-color: #121111;
+}
+
+.status_text{
+  font-size: 22px;
+  color: #EEEE;
+}
+
+th{
+  font-size: 22px;
+  color: #EEEE;
+}
+#status{
+    right: 30%;
+    left: 30%;
+    padding: 10vh 10vh;
+    position: absolute;
+    text-align: center;
+    box-shadow: 13px 13px 40px rgba(110, 108, 108, 0.933),
+              -13px -13px 40px rgba(110, 108, 108, 0.933);
+    
+}
+
+h1{
+  font-size: 350%;
+  color: #EEEE;
+  text-align: center;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 25px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+    background-color: #121111;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+#update_simples{
+  background-color: #121111;
+  border: 1px 1px;
+  border-color: white;
+}
+
+#nome{
+  font-size: 26px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>criar_personagem</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/criar_personagem.css')}}">
+</head>
+<body>
+    <div class="flex">
+        <div class="box">
+            <h1 class="text">Criação de Personagem</h1>
+            <div class="forms">
+            <form onsubmit="return false">
+                <label class="text-label">Quem será seu mestre:</label>
+                <input type="text" id='mestre' class="inputs" required>
+                <br><br>
+                <label class="text-label">Nome:</label>
+                <input type="text" id='nome' class="inputs">
+                <br><br>
+                <label class="text-label">Nível de exposição paranormal:</label>
+                <input type="number" id='nex' class="inputs" required>
+                <br><br>
+                <label class="text-label">Vida:</label>
+                <input type="number" id='vida' class="inputs" required>
+                <br><br>
+                <label class="text-label">Sanidade:</label>
+                <input type="number" id='san' class="inputs" required>
+                <br><br>
+                <label class="text-label">Pontos de esforço:</label>
+                <input type="number" id='pe' class="inputs" required>
+                <br><br>
+                <label class="text-label">Força:</label>
+                <input type="number" id='forca' class="inputs" required>
+                <br><br>
+                <label class="text-label">Agilidade:</label>
+                <input type="number" id='agi' class="inputs" required>
+                <br><br>
+                <label class="text-label">Intelecto:</label>
+                <input type="number" id='int' class="inputs" required>
+                <br><br>
+                <label class="text-label">Vigor:</label>
+                <input type="number" id='vig' class="inputs" required>
+                <br><br>
+                <label class="text-label">Presença:</label>
+                <input type="number" id='pre' class="inputs" required>
+                <br><br>
+                <button type="submit" id="submit_personagem" class="buttons-form">Enviar</button>
+            </form><br>
+        </div>
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{url_for('static',filename='js/criar_personagem.js')}}" type="text/javascript"></script>  
+</body>
+</html>

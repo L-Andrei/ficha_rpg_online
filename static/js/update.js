@@ -1,7 +1,7 @@
 $(function (){
     $(document).on('click', '#submit_personagem', function(){
         meuip = sessionStorage.getItem('meuip')
-        personagem = sessionStorage.getItem('personagem')
+        user = sessionStorage.getItem('user')
         nome = $('#nome').val();
         nex = $('#nex').val();
         vida = $('#vida').val();
@@ -13,7 +13,7 @@ $(function (){
         vig = $("#vig").val();
         pre = $("#pre").val();
 
-    var log = JSON.stringify({id:personagem,nome:nome,nex:nex,vd_max:vida,san_max:san,
+    var log = JSON.stringify({id:user,nome:nome,nex:nex,vd_max:vida,san_max:san,
     pe_max:pe,forca:forca,agi:agi,int:int,vig:vig,pre:pre});
 
     $.ajax({

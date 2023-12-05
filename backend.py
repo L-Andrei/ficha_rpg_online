@@ -131,7 +131,7 @@ def listar(identificador):
         resposta.headers.add("Access-Control-Allow-Origin", "*")
         dados = request.get_json(force=True)
         if identificador == "jogador": # Caso seja um jogador chamando a função ela retornará o seu personagem.
-            person = db.session.query(Personagem).filter_by(id = dados["id"]).first()
+            person = db.session.query(Personagem).filter_by(jogadorid = dados["id"]).first()
             personagem = person.retorna_personagem()
             resposta = personagem
         elif identificador == "mestre": # Caso seja um mestre a função retornará todos os jogadores da sessão.
@@ -161,8 +161,7 @@ def update_personagem_simples(identificador):
     # Realiza a atualização de poucos atribuitos como vida, sanidade e pontos de esforço.
         try:
             dados = request.get_json(force=True)
-            print(dados)
-            personagem = db.session.query(Personagem).filter_by(id = dados["id"]).first()# Encontra o registro que sera modificado.
+            personagem = db.session.query(Personagem).filter_by(jogadorid = dados["id"]).first()# Encontra o registro que sera modificado.
             if dados["dano_sofrido"] !='':
                 personagem.vd_atual = personagem.vd_atual - int(dados["dano_sofrido"])
             if dados["cura"] !='':
@@ -186,7 +185,7 @@ def update_personagem_simples(identificador):
     # Realiza a atualização de quase todos os atributos de um personagem.
         try:
             dados = request.get_json(force=True)
-            personagem = db.session.query(Personagem).filter_by(id = dados["id"]).first()# Encontra o registro que sera modificado.
+            personagem = db.session.query(Personagem).filter_by(jogadorid = dados["id"]).first()# Encontra o registro que sera modificado.
             if dados["nex"] !='':
                 personagem.nex = dados["nex"]
             if dados["vd_max"] !='':

@@ -30,7 +30,16 @@
                   <tbody id="table_body">
                   </tbody>
                   </table>
+                  <br><br>
+                  <form onsubmit="return false" id="form-excluir">
+                  <label style="color: white;">Nome do personagem que deseja excluir:</label>
+                  <br>
+                  <input class="inputs" type="text" name="nome" id="nome" >
+                  <br>
+                  <button id="btn-excluir" class="btn">Excluir personagem</button>
+                </form>
             </div>
+
         </div>
 <script>
 var meuip = sessionStorage.getItem('meuip');
@@ -62,5 +71,6 @@ var dados = JSON.stringify({id:sessionStorage.getItem('user')})
         alert(resposta.e)
     }
 </script>
+<script src="{{ url_for('static', filename='js/excluir_personagem.js') }}"></script>
 </body>
 </html>

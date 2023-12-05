@@ -234,4 +234,21 @@ def deletar_personagem():
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
+@app.route('/excluir_personagem', methods=['POST'])
+def excluir_personagem():
+    dados = request.get_json(force = True)
+    nome_personagem = dados['nome']
+    personagem = Personagem.query.filter(Personagem.nome_do_personagem.ilike(nome_personagem)).first()
+    
+    if personagem:
+        db.session.delete(personagem)
+        db.session.commit()
+        resposta = jsonify({'retorno': 'sucesso'})
+    else:
+        resposta =  jsonify({'retorno': 'erro'})
+        return resposta
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+    
+
 app.run(debug=True)

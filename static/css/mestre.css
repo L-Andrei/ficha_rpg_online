@@ -12,20 +12,55 @@ body{
     margin-top: 5vh;
     text-align: center;
     }
-    .table {
+.table {
         width: 120vh;
         box-shadow: 0 0 15px 7px black;
     }
-    .line-table-main {
+.line-table-main {
         color: white;
         border: 1px solid white;
     }
-    .line-table-item {
+.line-table-item {
         color: white;
         border: 1px solid white;
     }
-    .table-title {
+.table-title {
         color: white;
         border: 1px solid white;
         padding: 10px;
     }
+
+.inputs {
+    width: 15em; 
+    height: 1.8em;
+    border-radius: 2px;
+    margin: 5px;
+    padding-left: 10px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+}
+.inputs:hover {
+    transition: 1;
+    border: 1px solid white;
+}
+.btn {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 50;
+    margin-bottom: 15px;
+    padding: 0.7em 1.4em;
+    text-decoration: none;
+    text-transform: uppercase; 
+    font-family: 'Cursive', 
+    sans-serif; font-weight: 50;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+.btn:hover {
+    background-color: whitesmoke;
+    color: black;
+    transition: 0.3s;
+}

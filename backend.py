@@ -61,7 +61,8 @@ def logar_jogador():
         user = db.session.query(Jogador).filter_by(userid=dados["userid"],senha=dados["senha"]).first()
         if user == None:
             resposta = jsonify({"resultado":"not user"})
-        resposta = jsonify({"resultado":"sucesso"})
+        if user!=None:
+            resposta = jsonify({"resultado":"sucesso"})
     except Exception as e:
         resposta = jsonify({"resultado":"erro","detalhes":str(e)})
     return resposta
@@ -79,7 +80,8 @@ def logar_mestre():
         user = db.session.query(Mestre).filter_by(userid=dados["userid"],senha=dados["senha"]).first()
         if user == None:
             resposta = jsonify({"resultado":"not user"})
-        resposta = jsonify({"resultado":"sucesso"})
+        if user!=None:
+            resposta = jsonify({"resultado":"sucesso"})
     except Exception as e:
         resposta = jsonify({"resultado":"erro","detalhes":str(e)})
     resposta.headers.add("Access-Control-Allow-Origin", "*")

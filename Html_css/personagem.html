@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Lucas Andrei Cancelier Marin">
+        <meta http-equiv="refresh" content="1000">
+     <title>Personagem</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/personagem.css">
+    </head>
+    <body>
+        <header>
+        <h1>Ficha Do Personagem</h1>
+        </header>
+        <br><br>
+        <Section id="ficha">
+          <div id="status" style="border:1px solid white;">
+              <p id="nome">Nome do personagem</p>
+              <p class='status_text'></p>
+              <p id="vida">7/11</p>
+              <div class="custom-progress">
+                <progress id="vida_atual" value="7" max="11"></progress>
+              </div>  
+              <br>
+              <p class="status_text"></p>
+              <p id="san">18/20</p>
+              <div class="custom-progress">
+                <progress id="san_atual" value="18" max="20"></progress>
+              </div>
+              <br> 
+              <p class="status_text"></p>
+              <p id="pe">5/7</p>
+              <div class="custom-progress">
+                <progress id="pe_atual" value="5" max="7"></progress>
+              </div>
+              <br><br>
+              <button id='myBtn'>Atualização de status</button>
+              <br><br>
+              <button id="for" onclick="rolld20f()" value="1">Força</button>
+              <button id="agi" onclick="rolld20a()" value="1">Agilidade</button>
+              <button id="int" onclick="rolld20i()" value="1">Intelecto</button>
+              <button id="vig" onclick="rolld20v()" value="1">Vigor</button>
+              <button id="pre" onclick="rolld20p()" value="1">Presença</button>
+              <br><br>
+              <a href="menu.html"><button>Voltar</button></a>
+          </div>
+        </Section>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <botton class="close">&times;</botton>
+                <form onsubmit="return false">
+                <label>Dano sofrido:</label>
+                <br>
+                <input type="number" name="dano_sofrido" id="dano_sofrido">
+                <br>
+                <label>Cura recebido:</label>
+                <br>
+                <input type="number" name="cura" id="cura">
+                <br>
+                <label>Dano mental:</label>
+                <br>
+                <input type="number" name="dano_mental" id="dano_mental">
+                <br>
+                <label>Sanidade regenerada:</label>
+                <br>
+                <input type="number" name="san_regen" id="san_regen">
+                <br>
+                <label>Pontos de esforço gastos:</label>
+                <br>
+                <input type="number" name="pe_gasto" id="pe_gasto">
+                <br>
+                <label>Pontos de esforço recuperados:</label>
+                <br>
+                <input type="number" name="pe_ganho" id="pe_ganho">
+                <br><br>
+                <button type="submit" id="submit_personagem" class="buttons-form">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </body>
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var button = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+button.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+function rolld20f(){
+    a = document.getElementById("for").value;
+    if (a==0){
+        d1 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        d2 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        if (d1<d2){
+            dadofinal = d1
+        } else{
+            dadofinal = d2
+        }
+        alert('O seu maior dado foi:'+dadofinal);
+    };
+    if(a>0){
+        dadofinal = 0
+        for(let x = 0;x < a; x++){
+            x = Math.floor(Math.random() * (20 - 1 +1)) + 1
+            if (x>a){
+                dadofinal=x;
+            } else if (dadofinal == 0){
+                dadofinal = x;
+
+            }
+        }}
+    alert('O seu maior dado foi:'+dadofinal);
+};
+function rolld20a(){
+    a = document.getElementById("agi").value;
+    if (a==0){
+        d1 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        d2 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        if (d1<d2){
+            dadofinal = d1
+        } else{
+            dadofinal = d2
+        }
+        alert(dadofinal);
+    };
+    if(a>0){
+        dadofinal = 0
+        for(let x = 0;x < a; x++){
+            x = Math.floor(Math.random() * (20 - 1 +1)) + 1
+            if (x>a){
+                dadofinal=x;
+            } else if (dadofinal == 0){
+                dadofinal = x;
+
+            }
+        }}
+    alert('O seu maior dado foi:'+dadofinal);
+};
+function rolld20i(){
+    a = document.getElementById("int").value;
+    if (a==0){
+        d1 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        d2 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        if (d1<d2){
+            dadofinal = d1
+        } else{
+            dadofinal = d2
+        }
+        alert('O seu maior dado foi:'+dadofinal);
+    };
+    if(a>0){
+        dadofinal = 0
+        for(let x = 0;x < a; x++){
+            x = Math.floor(Math.random() * (20 - 1 +1)) + 1
+            if (x>a){
+                dadofinal=x;
+            } else if (dadofinal == 0){
+                dadofinal = x;
+
+            }
+        }}
+    alert('O seu maior dado foi:'+dadofinal);
+};
+function rolld20p(){
+    a = document.getElementById("pre").value;
+    if (a==0){
+        d1 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        d2 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        if (d1<d2){
+            dadofinal = d1
+        } else{
+            dadofinal = d2
+        }
+        alert('O seu maior dado foi:'+dadofinal);
+    };
+    if(a>0){
+        dadofinal = 0
+        for(let x = 0;x < a; x++){
+            x = Math.floor(Math.random() * (20 - 1 +1)) + 1
+            if (x>a){
+                dadofinal=x;
+            } else if (dadofinal == 0){
+                dadofinal = x;
+
+            }
+        }}
+    alert('O seu maior dado foi:'+dadofinal);
+};
+function rolld20v(){
+    a = document.getElementById("vig").value;
+    if (a==0){
+        d1 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        d2 = Math.floor(Math.random() * (20 - 1 +1)) + 1
+        if (d1<d2){
+            dadofinal = d1
+        } else{
+            dadofinal = d2
+        }
+        alert('O seu maior dado foi:'+dadofinal);
+    };
+    if(a>0){
+        dadofinal = 0
+        for(let x = 0;x < a; x++){
+            x = Math.floor(Math.random() * (20 - 1 +1)) + 1
+            if (x>a){
+                dadofinal=x;
+            } else if (dadofinal == 0){
+                dadofinal = x;
+
+            }
+        }}
+    alert('O seu maior dado foi:'+dadofinal);
+};
+</script>
+</html>

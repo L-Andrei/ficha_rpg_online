@@ -9,3 +9,6 @@ pip install flask_sqlalchemy
 Apos instaladas basta rodar o arquivo backend.py ir até o navegador e colocar o link:
 
 http://locahost:5000/
+
+A pasta HTML_css contém uma cópia das páginas, porem não necessita rodar o beckend para elas
+funcionarem, mas terão funções limitadas.

@@ -4,7 +4,7 @@ from rotas_render import *
 
 @app.route('/')
 def index():
-    return render_template('login.html')
+    return render_template('index.html')
 
 @app.route("/cadastrar_mestre",methods=["POST"]) # curl -X POST localhost:5000/cadastrar_mestre -d '{"userid":"Spadez","senha":"123456789"}' -H "Content-Type: application/json"
 def cadastrar_mestre():
@@ -61,9 +61,9 @@ def logar_jogador():
         user = db.session.query(Jogador).filter_by(userid=dados["userid"],senha=dados["senha"]).first()
         if user == None:
             resposta = jsonify({"resultado":"not user"})
+        resposta = jsonify({"resultado":"sucesso"})
     except Exception as e:
         resposta = jsonify({"resultado":"erro","detalhes":str(e)})
-    resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
 @app.route("/login_mestre",methods=["POST"])# curl -X POST localhost:5000/login_mestre -d '{"userid":"Spades","senha":"123456789"}' -H "Content-Type: application/json"
@@ -79,6 +79,7 @@ def logar_mestre():
         user = db.session.query(Mestre).filter_by(userid=dados["userid"],senha=dados["senha"]).first()
         if user == None:
             resposta = jsonify({"resultado":"not user"})
+        resposta = jsonify({"resultado":"sucesso"})
     except Exception as e:
         resposta = jsonify({"resultado":"erro","detalhes":str(e)})
     resposta.headers.add("Access-Control-Allow-Origin", "*")
@@ -104,8 +105,6 @@ def criar_personagem():
             return resposta
         db.session.add(personagem)
         personagem = db.session.query(Personagem.id).filter_by(jogadorid=personagem.jogadorid).first()
-        inventario = Inventario(personagem=personagem.id)
-        db.session.add(inventario)
         db.session.commit()
         resposta = jsonify({"resultado":"sucesso","detalhes":personagem.id})
     except Exception as e :
@@ -138,12 +137,6 @@ def listar(identificador):
             personagem =  db.session.query(Personagem).filter_by(mestreid = dados["id"]).all()
             person_json =[ x.retorna_personagem() for x in personagem]
             resposta = jsonify(person_json)
-        elif identificador == "inventario": # Retornará o inventario do jogador. (Talvez não funcione)
-            #curl -X POST localhost:5000/listar/inventario -d '{"id":"2"}' -H "Content-Type: application/json" -i
-            inv = db.session.query(Inventario.id).filter_by(personagem=dados["id"]).first()
-            itens = db.session.query(Item).filter_by(inventario = inv.id).all()
-            itens_json = [x.retorna_item() for x in itens]
-            resposta = jsonify(itens_json)
     except Exception as e:
         resposta = jsonify({"resultado":"erro","detalhes":str(e)})
     return resposta
@@ -233,26 +226,6 @@ def deletar_personagem():
         dados = request.get_json(force = True)
         personagem = db.session.query(Personagem).filter_by(id = dados["id"]).first()
         db.session.delete(personagem)
-        db.session.commit()
-        resposta = jsonify({"resultado":"sucesso"})
-    except Exception as e:
-        resposta = jsonify({"resultado":"erro","detalhes":str(e)})
-    resposta.headers.add("Access-Control-Allow-Origin", "*")
-    return resposta
-
-@app.route("/cadastrar_item",methods=["POST"]) # curl -X POST localhost:5000/cadastrar_item -d '{"id":"2","nome":"adaga","atributo":"agid20","utilidade":"dano:1d4+agi"}' -H "Content-Type: application/json"
-def cadastrar_item():
-    """Realiza o cadastro de um item.
-
-    Returns:
-        resposta(json): Retorna sucesso caso o item seja cadstrado.
-    """
-    try:
-        resposta = jsonify({"resultado":"ok"})
-        dados = request.get_json(force=True)
-        inv = db.session.query(Inventario.id).filter_by(personagem=dados["id"]).first()
-        item = Item(nome=dados["nome"],utilidade=dados["utilidade"],atributos=dados["atributo"], inventario = inv.id)
-        db.session.add(item)
         db.session.commit()
         resposta = jsonify({"resultado":"sucesso"})
     except Exception as e:

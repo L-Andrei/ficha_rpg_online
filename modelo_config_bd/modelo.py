@@ -57,35 +57,6 @@ class Personagem(db.Model):
     def __str__(self):
         s = f"{self.nome_do_personagem},{self.san_max},{self.pe_max},{self.forca},{self.agi},{self.int},{self.pre},{self.vig}"
         return s
-
-class Ficha(db.Model):
-    id = db.Column(db.Integer,primary_key=True)
-    ficha_path = db.Column(db.Text)
-    personagem = db.Column(db.Integer,db.ForeignKey(Personagem.id),nullable = False)
-
-    def retorna_ficha(self):
-        ficha_path = self.ficha_path
-        return ficha_path
-
-class  Inventario(db.Model):
-    id = db.Column(db.Integer,primary_key=True)
-    personagem = db.Column(db.Integer,db.ForeignKey(Personagem.id),nullable = False)
-
-class Item(db.Model):
-    id = db.Column(db.Integer,primary_key=True)
-    inventario = db.Column(db.Integer,db.ForeignKey(Inventario.id),nullable = False)
-    nome = db.Column(db.String(254))
-    utilidade = db.Column(db.String(254))
-    atributos = db.Column(db.String(254))
-
-    def __str__(self):
-        item = f'{self.nome},{self.utilidade},{self.atributos}'
-        return item
-
-    def retorna_item(self):
-        item = {
-            'nome':self.nome,
-            'utilidade':self.utilidade,
-            'atributos':self.atributos
-        }
-        return item
+    
+with app.app_context():
+    db.create_all()

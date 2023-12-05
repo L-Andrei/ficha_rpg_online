@@ -8,23 +8,30 @@
         <link rel="stylesheet" href="{{url_for('static',filename='css/personagem.css')}}">
     </head>
     <body>
-        <header></header>
+        <header>
         <h1>Ficha Do Personagem</h1>
+        </header>
         <br><br>
-        <div id="ficha">
+        <Section id="ficha">
           <div id="status" style="border:1px solid white;">
               <p id="nome"></p>
               <p class='status_text'></p>
               <p id="vida"></p>
-              <progress id="vida_atual" value="15" max="11"></progress>    
+              <div class="custom-progress">
+                <progress id="vida_atual" value="15" max="11"></progress>
+              </div>  
               <br>
               <p class="status_text"></p>
               <p id="san"></p>
-              <progress id="san_atual" value="19" max="20"></progress>
+              <div class="custom-progress">
+                <progress id="san_atual" value="19" max="20"></progress>
+              </div>
               <br> 
               <p class="status_text"></p>
               <p id="pe"></p>
-              <progress id="pe_atual" value="5" max="7"></progress>
+              <div class="custom-progress">
+                <progress id="pe_atual" value="5" max="7"></progress>
+              </div>
               <br><br>
               <button id='myBtn'>Atualização de status</button>
               <br><br>
@@ -35,7 +42,7 @@
               <button id="pre" onclick="rolld20p()" value="1">Presença</button>
               <p id="resultado"></p>
           </div>
-        </div>
+        </Section>
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <botton class="close">&times;</botton>
@@ -94,7 +101,7 @@ function rolld20f(){
         } else{
             dadofinal = d2
         }
-        alert(dadofinal);
+        alert('O seu maior dado foi:'+dadofinal);
     };
     if(a>0){
         dadofinal = 0
@@ -107,7 +114,7 @@ function rolld20f(){
 
             }
         }}
-    alert(dadofinal);
+    alert('O seu maior dado foi:'+dadofinal);
 };
 function rolld20a(){
     a = document.getElementById("agi").value;
@@ -132,7 +139,7 @@ function rolld20a(){
 
             }
         }}
-    alert(dadofinal);
+    alert('O seu maior dado foi:'+dadofinal);
 };
 function rolld20i(){
     a = document.getElementById("int").value;
@@ -144,7 +151,7 @@ function rolld20i(){
         } else{
             dadofinal = d2
         }
-        alert(dadofinal);
+        alert('O seu maior dado foi:'+dadofinal);
     };
     if(a>0){
         dadofinal = 0
@@ -157,7 +164,7 @@ function rolld20i(){
 
             }
         }}
-    alert(dadofinal);
+    alert('O seu maior dado foi:'+dadofinal);
 };
 function rolld20p(){
     a = document.getElementById("pre").value;
@@ -169,7 +176,7 @@ function rolld20p(){
         } else{
             dadofinal = d2
         }
-        alert(dadofinal);
+        alert('O seu maior dado foi:'+dadofinal);
     };
     if(a>0){
         dadofinal = 0
@@ -182,7 +189,7 @@ function rolld20p(){
 
             }
         }}
-    alert(dadofinal);
+    alert('O seu maior dado foi:'+dadofinal);
 };
 function rolld20v(){
     a = document.getElementById("vig").value;
@@ -194,7 +201,7 @@ function rolld20v(){
         } else{
             dadofinal = d2
         }
-        alert(dadofinal);
+        alert('O seu maior dado foi:'+dadofinal);
     };
     if(a>0){
         dadofinal = 0
@@ -207,7 +214,7 @@ function rolld20v(){
 
             }
         }}
-    alert(dadofinal);
+    alert('O seu maior dado foi:'+dadofinal);
 };
 </script>
 <script>

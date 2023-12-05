@@ -6,9 +6,13 @@ import datetime
 from datetime import timedelta
 from flask_cors import CORS, cross_origin
 
-app = Flask(__name__, template_folder='C:/Users/Lucas Andrei/ficha-rpg-online/templates',
-static_folder='C:/Users/Lucas Andrei/ficha-rpg-online/templates/static')
-CORS(app)  
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+template_folder = os.path.join(current_directory, '../templates')
+static_folder = os.path.join(current_directory, '../static')
+
+app = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
+CORS(app)
 
 path = os.path.dirname(os.path.abspath(__file__))
 arquivobd = os.path.join(path, 'rpg.db')
